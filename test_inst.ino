@@ -96,9 +96,9 @@ void cw(int spd, int deg) {
   digitalWrite(dirPin2, HIGH); // putar searah jarum jam
   for (unsigned long i = 0; i < stepDeg; i++) {
     digitalWrite(stepPin2, HIGH);
-    delayMicroseconds(spd); // ganti delay untuk mempercepat motor
+    delayMicroseconds(2000); // ganti delay untuk mempercepat motor
     digitalWrite(stepPin2, LOW);
-    delayMicroseconds(spd); // ganti delay untuk mempercepat motor
+    delayMicroseconds(2000); // ganti delay untuk mempercepat motor
   }
 }
 
@@ -107,9 +107,9 @@ void ccw(int spd, int deg) {
   digitalWrite(dirPin2, LOW); // putar searah jarum jam
   for (unsigned long i = 0; i < stepDeg; i++) {
     digitalWrite(stepPin2, HIGH);
-    delayMicroseconds(spd); // ganti delay untuk mempercepat motor
+    delayMicroseconds(2000); // ganti delay untuk mempercepat motor
     digitalWrite(stepPin2, LOW);
-    delayMicroseconds(spd); // ganti delay untuk mempercepat motor
+    delayMicroseconds(2000); // ganti delay untuk mempercepat motor
   }
 }
 
@@ -132,9 +132,9 @@ void goHome(int spd) {
       sens2 = digitalRead(degSens);
       if (sens2 == false) break;
       digitalWrite(stepPin2, HIGH);
-      delayMicroseconds(spd); // ganti delay untuk mempercepat motor
+      delayMicroseconds(2000); // ganti delay untuk mempercepat motor
       digitalWrite(stepPin2, LOW);
-      delayMicroseconds(spd); // ganti delay untuk mempercepat motor
+      delayMicroseconds(2000); // ganti delay untuk mempercepat motor
     }
 
     //Serial.print(sens1);
@@ -210,7 +210,7 @@ void getSerial() {
     else ccw(spd[k], deg[k]);
     delay(meTim[k]);
   }
-  goHome(100);
+  //goHome(100);
 }
 
 int readDist() {
@@ -244,13 +244,13 @@ void loop() {
 
   statePB3 = digitalRead(PB3);
   if (statePB3 == LOW) {
-    cw(500, 9);
+    cw(2000, 9);
   }
   else cw(500, 0);
 
   statePB4 = digitalRead(PB4);
   if (statePB4 == LOW) {
-    ccw(500, 9);
+    ccw(2000, 9);
   }
   else ccw(500, 0);
   //  int Distance = readDist();
